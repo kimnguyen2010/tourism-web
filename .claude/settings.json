@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(npx pnpm:*)",
+      "Bash(timeout 8 npx tsx src/main.ts)",
+      "Bash(docker info:*)",
+      "Bash(docker compose:*)",
+      "Bash(npx prisma:*)",
+      "Bash(node -e \"require\\(''reflect-metadata''\\); console.log\\(typeof Reflect.getMetadata\\)\")",
+      "Bash(timeout 8 node --import @swc-node/register/esm-register src/main.ts)"
+    ]
+  }
+}

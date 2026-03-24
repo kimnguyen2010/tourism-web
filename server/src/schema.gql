@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthPayloadModel {
+  token: String!
+  user: UserModel!
+}
+
+type ChatResponseModel {
+  reply: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input MessageInput {
+  content: String!
+  role: String!
+}
+
+type Mutation {
+  login(input: LoginInput!): AuthPayloadModel!
+  logout: Boolean!
+  register(input: RegisterInput!): AuthPayloadModel!
+  sendChat(history: [MessageInput!], message: String!): ChatResponseModel!
+}
+
+type Query {
+  health: String!
+  me: UserModel!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type UserModel {
+  createdAt: String!
+  email: String!
+  id: ID!
+  name: String!
+  role: UserRole!
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}

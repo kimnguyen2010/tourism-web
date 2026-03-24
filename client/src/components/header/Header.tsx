@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -67,40 +68,48 @@ export function Header() {
           </Button>
           {isAuthenticated ? (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary" className="hidden items-center rounded-full px-3 md:inline-flex">
-                  <span className="inline-flex size-7 items-center justify-center rounded-full bg-sky-900 text-xs font-semibold text-white dark:bg-sky-400 dark:text-slate-950">
-                    {avatarLetter}
-                  </span>
-                  <span className="max-w-28 truncate leading-none">{user?.name ?? "Tài khoản"}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel className="px-3 py-2">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex size-9 items-center justify-center rounded-full bg-sky-900 text-sm font-semibold text-white dark:bg-sky-400 dark:text-slate-950">
+              <DropdownMenuTrigger
+                render={
+                  <Button variant="secondary" className="hidden items-center rounded-full px-3 md:inline-flex">
+                    <span className="inline-flex size-7 items-center justify-center rounded-full bg-sky-900 text-xs font-semibold text-white dark:bg-sky-400 dark:text-slate-950">
                       {avatarLetter}
                     </span>
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{user?.name}</p>
-                      <p className="mt-1 text-xs font-normal text-slate-500 dark:text-slate-400">{user?.email}</p>
+                    <span className="max-w-28 truncate leading-none">{user?.name ?? "Tài khoản"}</span>
+                  </Button>
+                }
+              />
+              <DropdownMenuContent align="end">
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel className="px-3 py-2">
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex size-9 items-center justify-center rounded-full bg-sky-900 text-sm font-semibold text-white dark:bg-sky-400 dark:text-slate-950">
+                        {avatarLetter}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{user?.name}</p>
+                        <p className="mt-1 text-xs font-normal text-slate-500 dark:text-slate-400">{user?.email}</p>
+                      </div>
                     </div>
-                  </div>
-                </DropdownMenuLabel>
+                  </DropdownMenuLabel>
+                </DropdownMenuGroup>
                 {isAdmin ? (
                   <>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => navigate(ROUTE_PATHS.admin)}>
-                      <ShieldCheck className="size-4" />
-                      Quản trị
-                    </DropdownMenuItem>
+                    <DropdownMenuGroup>
+                      <DropdownMenuItem onClick={() => navigate(ROUTE_PATHS.admin)}>
+                        <ShieldCheck className="size-4" />
+                        Quản trị
+                      </DropdownMenuItem>
+                    </DropdownMenuGroup>
                   </>
                 ) : null}
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => void handleLogout()}>
-                  <LogOut className="size-4" />
-                  Đăng xuất
-                </DropdownMenuItem>
+                <DropdownMenuGroup>
+                  <DropdownMenuItem onClick={() => void handleLogout()}>
+                    <LogOut className="size-4" />
+                    Đăng xuất
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (

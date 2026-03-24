@@ -10,10 +10,13 @@
     "start:prod": "node dist/main.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:push": "prisma db push",
+    "prisma:reset": "prisma migrate reset --force",
     "db:up": "docker compose -f ../docker-compose.yml up -d postgres",
     "db:down": "docker compose -f ../docker-compose.yml down",
-    "db:logs": "docker compose -f ../docker-compose.yml logs -f postgres"
+    "db:logs": "docker compose -f ../docker-compose.yml logs -f postgres",
+    "db:reset": "docker compose -f ../docker-compose.yml down -v && docker compose -f ../docker-compose.yml up -d postgres"
   },
   "dependencies": {
     "@apollo/server": "^4.12.2",

@@ -106,9 +106,9 @@ export class AuthService {
     return true;
   }
 
-  private mapUser(user: { id: string | number; name: string; email: string; role: string; createdAt: Date }): UserModel {
+  private mapUser(user: { id: string; name: string; email: string; role: string; createdAt: Date }): UserModel {
     return {
-      id: String(user.id),
+      id: user.id,
       name: user.name,
       email: user.email,
       role: user.role === "ADMIN" ? UserRole.ADMIN : UserRole.USER,

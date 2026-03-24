@@ -4,6 +4,14 @@
 :root {
   font-family: "Be Vietnam Pro", sans-serif;
   color: #0f172a;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-accent: #eff6ff;
+  --sidebar-accent-foreground: #0369a1;
+  --sidebar-ring: #38bdf8;
 }
 
 html {
@@ -16,6 +24,17 @@ body {
   background: linear-gradient(180deg, #fff7ed 0%, #f8fbff 50%, #ecfeff 100%);
   color: #0f172a;
   transition: background-color 200ms ease, color 200ms ease;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #e2e8f0;
+  --sidebar: #020817;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-border: #1e293b;
+  --sidebar-accent: #0f172a;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-ring: #38bdf8;
 }
 
 .dark body {
